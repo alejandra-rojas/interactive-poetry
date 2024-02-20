@@ -67,7 +67,9 @@
 	let sessionWordSet: string[][] = [];
 
 	let poemWords: string[] = [];
-	let regreted = false;
+
+	let remainingRegrets = 3;
+
   
 	// onMount(() => {
 	//   selectRandomWords();
@@ -105,14 +107,67 @@
 	}
   
 	function regret() {
-	  if (!regreted && confirm("Do you want to give one step back?")) {
+	  if (remainingRegrets > 0 && confirm("Do you want to give one step back?")) {
 		sessionWordSet.pop();
 		poemWords.pop();
 		poemWords = poemWords;
 		randomWords = [...sessionWordSet[sessionWordSet.length - 1]];
-		regreted = true;
+		remainingRegrets -= 1;
+
 	  }
 	}
+
+	let selectedWordIndex: number | null = null;
+
+	let modifiedWords: string[] = [];
+
+function selectWord(index: number) {
+  selectedWordIndex = selectedWordIndex === index ? null : index;
+}
+
+function capitalizeWord(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] = poemWords[index].charAt(0).toUpperCase() + poemWords[index].slice(1);
+}
+
+function addComma(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] += ",";
+}
+
+function addSlash(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] += "/";
+}
+
+function addPoint(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] += ".";
+}
+
+function addLinebreak(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] += '<br>';
+}
+
+function restore(index: number) {
+  if (modifiedWords[index]) {
+    poemWords[index] = modifiedWords[index];
+    modifiedWords[index] = "";
+  }
+}
+
+
 
 	
   </script>
@@ -151,7 +206,7 @@
 
 			</div>
 			
-			{#if !regreted}
+			{#if remainingRegrets > 0}
 			  <button on:click={regret} class="word regret">Regrets ?</button>
 			{/if}
 		</div>
@@ -160,9 +215,48 @@
 
 		
 
-		<div class="selection-container">
-			{#each poemWords as word}<div class="word">{word}</div>{/each}
-		</div>
+	<div >
+
+
+  <div class="selection-container">
+	{#each poemWords as word, index}
+    {#if selectedWordIndex === index}
+      <div
+        role="button"
+        aria-pressed={selectedWordIndex === index}
+        class="selection selected"
+        on:click={() => selectWord(index)}
+      >
+	  {@html word}
+      </div>
+    {:else}
+      <div
+        role="button"
+        aria-pressed={selectedWordIndex === index}
+        class="selection"
+        on:click={() => selectWord(index)}
+      >
+	  {@html word}
+      </div>
+    {/if}
+  {/each}
+  </div>
+  <div>
+
+	{#if selectedWordIndex !== null}
+	<div class="formatting-options">
+	  <button on:click={() => capitalizeWord(selectedWordIndex)}>C</button>
+	  <button on:click={() => addComma(selectedWordIndex)}>,</button>
+	  <button on:click={() => addSlash(selectedWordIndex)}>/</button>
+	  <button on:click={() => addPoint(selectedWordIndex)}>.</button>
+	  <button on:click={() => restore(selectedWordIndex)}>RESET</button>
+      <button on:click={() => addLinebreak(selectedWordIndex)}>ENTER</button>
+	  
+	</div>
+  {/if}
+  </div>
+
+		  </div>
 			
 	</div>
 	
@@ -177,7 +271,7 @@
 
 	.app-container {
 		display: grid;
-		grid-template-columns: 2fr 1fr;
+		grid-template-rows:  1fr 1fr;
 	}
 
 	.how{
@@ -210,12 +304,51 @@
 
 	.regret { margin: 10% auto;}
 
-	.selection-container {
-		padding-top: 25%;
-		padding-left: 50%;
-		display: flex;
-		flex-direction: column;
-		gap: .5rem;
+
+ .selection-container{
+	background-color: white;
+	padding: 3rem 4rem;
+ }
+
+	.selection{
+		width: fit-content;
+		display: inline;
+		text-align: center;
+		box-sizing: border-box;
+		border: none;
+		/* font-size: calc(0.08 * var(--width)); */
+		border-radius: 2px;
+		color: rgba(0, 0, 0, 0.7);
+		z-index: 100;
+		line-height:250%;
+	}
+
+	.selected {
+		padding: 0.5rem;
+    outline: 2px solid orange;
+	z-index: 100;}
+
+
+	
+   .formatting-options{
+	display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+	margin-top: 3rem;
+	gap: 0.2rem;
+	}
+
+	.formatting-options button {
+		color: black ;
+		width: fit-content;
+		text-align: center;
+		text-transform: uppercase;
+		border: none;
+		font-size: calc(0.08 * var(--width));
+		border-radius: 2px;
+		background: white;
+		padding: 0.5rem;
 	}
 
 </style>
