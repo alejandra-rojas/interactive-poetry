@@ -196,15 +196,15 @@ function restore(index: number) {
 		  <div class="instruction-text">
 			<div>Välkommen att skapa en text ur ånger. Skapandet sker i flera steg. 
 			</div>
-			<div>Steg 1 har redan skett; 4 personer har skrivit text om ånger. Dessa texter har sedan rensats på skiljetecken och bildat en samling ord.
+			<div><span class='orange'>Steg 1 har redan skett</span> 4 personer har skrivit text om ånger. Dessa texter har sedan rensats på skiljetecken och bildat en samling ord.
 			</div>
-			<div>Steg 2 är att du skriver ord i rutan med rubriken Jag ångrar / jeg fortryder:. Dina ord läggs då till i den befintliga samlingen.
+			<div><span class='orange'>Steg 2</span> är att du skriver ord i rutan med rubriken Jag ångrar / jeg fortryder:. Dina ord läggs då till i den befintliga samlingen.
 			</div>
-			<div>Steg 3 är att du väljer ord som i slutet bildar en ordföljd. Orden genereras slumpmässigt från samlingen ord, som du har varit med och skapat. Du börjar med att välja 1 av de 7 ord du får upp som första val. Varje valt ord generar i sin tur slumpmässigt 7 nya ord, unika till det ord du valt, som du sedan ska välja 1 av och fortsätter sedan på samma sätt. Du ställs totalt inför 13 val av ord att plocka, som i slutändan bildar en ordföljd på 13 ord. Under skapandets gång har du rätt att ångra dig max 3 gånger, och då gå tillbaka till tidigare steg för chansen att välja mellan andra ord som då genereras. 
+			<div><span class='orange'>Steg 3</span> är att du väljer ord som i slutet bildar en ordföljd. Orden genereras slumpmässigt från samlingen ord, som du har varit med och skapat. Du börjar med att välja 1 av de 7 ord du får upp som första val. Varje valt ord generar i sin tur slumpmässigt 7 nya ord, unika till det ord du valt, som du sedan ska välja 1 av och fortsätter sedan på samma sätt. Du ställs totalt inför 13 val av ord att plocka, som i slutändan bildar en ordföljd på 13 ord. Under skapandets gång har du rätt att ångra dig max 3 gånger, och då gå tillbaka till tidigare steg för chansen att välja mellan andra ord som då genereras. 
 			</div>
-			<div>Steg 4 är att du skapar en text utifrån den ordföljd du hamnat med. Det enda du kan ändra i ordföljden är att (1) lägga till versaler, (2) lägga till skiljetecken, (3) lägga till radbrytning.
+			<div><span class='orange'>Steg 4</span> är att du skapar en text utifrån den ordföljd du hamnat med. Det enda du kan ändra i ordföljden är att (1) lägga till versaler, (2) lägga till skiljetecken, (3) lägga till radbrytning.
 			</div>
-			<div>Steg 5 är att du kan välja att kopiera den skapade texten och spara den hos dig, eller lämna sidan och låta den försvinna. När du lämnar sidan försvinner även de eventuella ord du la till i samlingen.
+			<div><span class='orange'>Steg 5</span> är att du kan välja att kopiera den skapade texten och spara den hos dig, eller lämna sidan och låta den försvinna. När du lämnar sidan försvinner även de eventuella ord du la till i samlingen.
 			</div>
 		  </div>
 		</div>
@@ -324,7 +324,7 @@ function restore(index: number) {
         align-items: center;
         justify-items: center;
         width: 100%;
-		max-width: 600px;
+		max-width: 750px;
 	}
 
 	.instructions-btn{
@@ -339,11 +339,21 @@ function restore(index: number) {
 	.accordion {
 		margin: 0.25rem 2rem;
 		width: 100%;
+		height: fit-content;
 		background-color: rgba(255,255,255,0.5) ;
 	}
 
 	.instruction-text{
-		padding: 0.5rem;
+		font-size: 0.9rem;
+		line-height: 120%;
+		padding: 1rem 1.5rem 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.orange{
+		color: orangered;
 	}
 
 	.step-one{
@@ -434,11 +444,10 @@ function restore(index: number) {
 		box-sizing: border-box;
 		text-transform: lowercase;
 		border: none;
-		/* font-size: calc(0.08 * var(--width)); */
 		border-radius: 2px;
 		background: white;
 		padding: 0.5rem;
-		color: rgba(0, 0, 0, 0.7);
+		color: rgba(0, 0, 0, 0.85);
 	}
 
 	.selected-word, .word:hover{
@@ -465,7 +474,7 @@ function restore(index: number) {
 		border-radius: 2px;
 		color: rgba(0, 0, 0, 0.7);
 		z-index: 100;
-		line-height:250%;
+		line-height:225%;
 	}
 
 	.selected {

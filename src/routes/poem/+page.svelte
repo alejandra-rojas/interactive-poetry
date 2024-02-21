@@ -311,7 +311,7 @@ function restore(index: number) {
         align-items: center;
         justify-items: center;
         width: 100%;
-		max-width: 600px;
+		max-width: 750px;
 	}
 
 	.instructions-btn{
@@ -330,7 +330,10 @@ function restore(index: number) {
 	}
 
 	.instruction-text{
-		padding: 0.5rem;
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
 	}
 
 	.step-one{
