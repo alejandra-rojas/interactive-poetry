@@ -99,10 +99,8 @@
   
 	function addToPoem(word: any) {
 	  poemWords = [...poemWords, word];
-	//   const updatedWordList = wordList.filter((filteredWord) => filteredWord !== word);
-	//   wordList = updatedWordList;
 	  selectRandomWords();
-	  console.log(sessionWordSet)
+	  //console.log(sessionWordSet)
 	}
   
 	function regret() {
@@ -196,7 +194,7 @@ function restore(index: number) {
 		  <div class="instruction-text">
 			<div><span class="bold">Välkommen att skapa en text ur ånger.</span> Skapandet sker i flera steg. 
 			</div>
-			<div><span class='orange'>Steg 1 har redan skett</span> 4 personer har skrivit text om ånger. Dessa texter har sedan rensats på skiljetecken och bildat en samling ord.
+			<div><span class='orange'>Steg 1 har redan skett:</span> 4 personer har skrivit text om ånger. Dessa texter har sedan rensats på skiljetecken och bildat en samling ord.
 			</div>
 			<div><span class='orange'>Steg 2</span> är att du skriver ord i rutan med rubriken Jag ångrar / jeg fortryder:. Dina ord läggs då till i den befintliga samlingen.
 			</div>
@@ -346,7 +344,7 @@ function restore(index: number) {
 	.instruction-text{
 		font-size: 0.9rem;
 		line-height: 120%;
-		padding: 1rem 1.5rem 1.5rem;
+		padding: 1rem 1rem 1.5rem;
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
