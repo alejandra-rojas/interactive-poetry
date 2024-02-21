@@ -189,7 +189,7 @@ function addItalics(index: number) {
   if (!modifiedWords[index]) {
     modifiedWords[index] = poemWords[index];
   }
-  poemWords[index] = '"' + poemWords[index] + '"';
+  poemWords[index] = '<em class="italic">' + poemWords[index] + '</em>';
 }
 
 function addLinebreak(index: number) {
@@ -327,7 +327,7 @@ function restore(index: number) {
 			  <button on:click={() => addStar(selectedWordIndex)}>*</button>
 			  <button on:click={() => addParentheses(selectedWordIndex)}>( )</button>
 			  <button on:click={() => addQuotation(selectedWordIndex)}>" "</button>
-			  <!-- <button on:click={() => addItalics(selectedWordIndex)}><span class="italic">i</span></button> -->
+			  <button on:click={() => addItalics(selectedWordIndex)}><span class="italic">i</span></button> 
 			  <button on:click={() => restore(selectedWordIndex)}>RESET</button>
     		  <button on:click={() => addLinebreak(selectedWordIndex)}>ENTER</button>  
 			</div>
@@ -560,6 +560,10 @@ function restore(index: number) {
 		border: 0.5px solid gainsboro;
 		padding:  0.5rem 1rem;
 		color: rgba(0, 0, 0, 0.9);;
+	}
+
+	.italic{
+		font-style: italic !important;
 	}
 
 	.formatting-options button .italic{
