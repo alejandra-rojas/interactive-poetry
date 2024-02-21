@@ -77,6 +77,10 @@
     isOpen = !isOpen;
   }
 
+  function closeAccordion() {
+    isOpen = false;
+  }
+
 	function handleSubmit(){
 		const newWords = userInput.split(/\s+/).filter(word => word.trim() !== "");
 		wordList = [...wordList, ...newWords];
@@ -250,7 +254,7 @@ function restore(index: number) {
 	{#if !showAppContainer}
 		<div class="step-one">
 			<label for="inputField">Jag ångrar/ jeg fortryder:</label>
-  			<textarea class="text-area" rows="6" id="inputField" bind:value={userInput} />
+  			<textarea on:click={closeAccordion}  class="text-area" rows="6" id="inputField" bind:value={userInput} />
 			
  			<button on:click={handleSubmit}>start</button>
 		</div>
