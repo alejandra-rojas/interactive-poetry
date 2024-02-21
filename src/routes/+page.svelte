@@ -473,7 +473,6 @@ function restore(index: number) {
 		text-align: center;
 		box-sizing: border-box;
 		border: none;
-		/* font-size: calc(0.08 * var(--width)); */
 		border-radius: 2px;
 		color: rgba(0, 0, 0, 0.7);
 		z-index: 100;
@@ -507,7 +506,6 @@ function restore(index: number) {
 		box-sizing: border-box;
 		text-transform: uppercase;
 		border-radius: 2px;
-		/* background: #EFEFEF; */
 		border: 0.5px solid gainsboro;
 		padding:  0.5rem 1rem;
 		color: rgba(0, 0, 0, 0.9);;
