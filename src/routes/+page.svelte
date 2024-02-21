@@ -37,7 +37,7 @@
   "till", "sanning", "skaver", "men", "det", "är", "inte", "ånger", "andras", "kroppar", "finns", "det", "känns", "ibland",
   "att", "vara", "kopplad", "till", "andras", "smärta", "att", "svika", "dem", "eventuellt", "lögnerna", "kanske", "jag", "ångrar",
   "de", "enda", "sanna", "orden", "jag", "minns", "är", "att", "jag", "förstod", "att", "min", "kropp", "inte", "är", "något",
-  "annat", "än", "kött", "utredningen", "fick", "jag", "ångradu", "kommer", "alltid", "att", "bara", "förbli", "mitt", "nästan",
+  "annat", "än", "kött", "utredningen", "fick", "jag", "ångra", "du", "kommer", "alltid", "att", "bara", "förbli", "mitt", "nästan",
   "och", "inte", "bara", "på", "ett", "världsligt", "plan", "där", "det", "ytliga", "och", "genomskådliga", "stiger", "fram", "för",
   "att", "beskriva", "ett", "förflutet", "för", "att", "sätta", "ord", "krävs", "tydningar", "på", "ett", "djupt", "spirituellt", "och",
   "introspektivt", "plan", "bortom", "allt", "vi", "drömde", "om", "att", "bli", "men", "aldrig", "riktigt", "blev", "återfinner", "jag",
@@ -315,7 +315,7 @@ function restore(index: number) {
 		align-items: center;
 		justify-items: center;
 		flex: 1;
-		gap: 2rem;
+		gap: 1rem;
 	}
 
 	.instructions{
@@ -451,9 +451,11 @@ function restore(index: number) {
  .selection-container{
 	background-color: white;
 	padding: 3rem 4rem;
+	min-width: 200px;
  }
 
 	.selection{
+		cursor: pointer;
 		width: fit-content;
 		display: inline;
 		text-align: center;
@@ -479,7 +481,7 @@ function restore(index: number) {
 		align-items: center;
 		justify-content: center;
 		box-sizing: border-box;
-	margin-top: 3rem;
+	margin-top: 2rem;
 	gap: 0.2rem;
 	}
 
