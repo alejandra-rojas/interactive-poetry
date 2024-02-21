@@ -104,7 +104,7 @@
 	}
   
 	function regret() {
-	  if (remainingRegrets > 0 && confirm("Do you want to give one step back?")) {
+	  if (remainingRegrets > 0 && confirm("Do you regret your chosen word?")) {
 		sessionWordSet.pop();
 		poemWords.pop();
 		poemWords = poemWords;
@@ -135,12 +135,30 @@ function addComma(index: number) {
   }
   poemWords[index] += ",";
 }
-
-function addSlash(index: number) {
+function addSemicolon(index: number) {
   if (!modifiedWords[index]) {
     modifiedWords[index] = poemWords[index];
   }
-  poemWords[index] += "/";
+  poemWords[index] += ";";
+}
+function addQuestion(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] += "?";
+}
+function addDash(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] += "-";
+}
+
+function addStar(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] += "*";
 }
 
 function addPoint(index: number) {
@@ -148,6 +166,26 @@ function addPoint(index: number) {
     modifiedWords[index] = poemWords[index];
   }
   poemWords[index] += ".";
+}
+
+
+function addParentheses(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] = '(' + poemWords[index] + ')';
+}
+function addQuotation(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] = '"' + poemWords[index] + '"';
+}
+function addItalics(index: number) {
+  if (!modifiedWords[index]) {
+    modifiedWords[index] = poemWords[index];
+  }
+  poemWords[index] = '"' + poemWords[index] + '"';
 }
 
 function addLinebreak(index: number) {
@@ -194,7 +232,7 @@ function restore(index: number) {
 		  <div class="instruction-text">
 			<div><span class="bold">Välkommen att skapa en text ur ånger.</span> Skapandet sker i flera steg. 
 			</div>
-			<div><span class='orange'>Steg 1 har redan skett:</span> 4 personer har skrivit text om ånger. Dessa texter har sedan rensats på skiljetecken och bildat en samling ord.
+			<div><span class='orange'>Steg 1</span> har redan skett; 4 personer har skrivit text om ånger. Dessa texter har sedan rensats på skiljetecken och bildat en samling ord.
 			</div>
 			<div><span class='orange'>Steg 2</span> är att du skriver ord i rutan med rubriken Jag ångrar / jeg fortryder:. Dina ord läggs då till i den befintliga samlingen.
 			</div>
@@ -277,9 +315,15 @@ function restore(index: number) {
 		{#if selectedWordIndex !== null}
 			<div class="formatting-options">
 			  <button on:click={() => capitalizeWord(selectedWordIndex)}>C</button>
-			  <button on:click={() => addComma(selectedWordIndex)}>,</button>
-			  <button on:click={() => addSlash(selectedWordIndex)}>/</button>
 			  <button on:click={() => addPoint(selectedWordIndex)}>.</button>
+			  <button on:click={() => addComma(selectedWordIndex)}>,</button>
+			  <button on:click={() => addSemicolon(selectedWordIndex)}>;</button>
+			  <button on:click={() => addQuestion(selectedWordIndex)}>?</button>
+			  <button on:click={() => addDash(selectedWordIndex)}>-</button>
+			  <button on:click={() => addStar(selectedWordIndex)}>*</button>
+			  <button on:click={() => addParentheses(selectedWordIndex)}>( )</button>
+			  <button on:click={() => addQuotation(selectedWordIndex)}>" "</button>
+			  <!-- <button on:click={() => addItalics(selectedWordIndex)}><span class="italic">i</span></button> -->
 			  <button on:click={() => restore(selectedWordIndex)}>RESET</button>
     		  <button on:click={() => addLinebreak(selectedWordIndex)}>ENTER</button>  
 			</div>
@@ -328,6 +372,8 @@ function restore(index: number) {
 	.instructions-btn{
 		display: flex;
 		align-items: center;
+		color: black;
+		font-weight: 600;
 	}
 
 	.instructions-btn svg{
@@ -356,7 +402,7 @@ function restore(index: number) {
 	}
 
 	.orange{
-		color: orangered;
+		font-weight: 600;
 	}
 
 	.step-one{
@@ -488,12 +534,13 @@ function restore(index: number) {
 
 	
    .formatting-options{
-	display: flex;
+		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
 		box-sizing: border-box;
-	margin-top: 2rem;
-	gap: 0.2rem;
+		margin-top: 2rem;
+		gap: 0.2rem;
 	}
 
 	.formatting-options button {
@@ -509,6 +556,11 @@ function restore(index: number) {
 		border: 0.5px solid gainsboro;
 		padding:  0.5rem 1rem;
 		color: rgba(0, 0, 0, 0.9);;
+	}
+
+	.formatting-options button .italic{
+		text-transform: lowercase !important; 
+		font-style: italic !important;
 	}
 
 	.formatting-options button:hover{
