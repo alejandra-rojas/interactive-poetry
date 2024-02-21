@@ -4,15 +4,15 @@
 </script>
 
 <div class="app">
-	<Header />
+	<!-- <Header /> -->
 
 	<main>
 		<slot />
 	</main>
 
-	<footer>
+	<!-- <footer>
 		<p>blah blah</p>
-	</footer>
+	</footer> -->
 </div>
 
 <style>

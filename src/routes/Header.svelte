@@ -35,7 +35,7 @@
 		<a href="https://github.com/sveltejs/kit">
 			<img src={github} alt="GitHub" />
 		</a>
-	</div>
+	</div> 
 </header>
 
 <style>
