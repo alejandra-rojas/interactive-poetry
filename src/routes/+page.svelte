@@ -194,7 +194,7 @@ function restore(index: number) {
 	
 		<div class="accordion" use:accordion={isOpen}>
 		  <div class="instruction-text">
-			<div>Välkommen att skapa en text ur ånger. Skapandet sker i flera steg. 
+			<div><span class="bold">Välkommen att skapa en text ur ånger.</span> Skapandet sker i flera steg. 
 			</div>
 			<div><span class='orange'>Steg 1 har redan skett</span> 4 personer har skrivit text om ånger. Dessa texter har sedan rensats på skiljetecken och bildat en samling ord.
 			</div>
@@ -350,6 +350,11 @@ function restore(index: number) {
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
+	}
+
+	.bold{
+		font-weight: 600;
+		font-size: 1rem;
 	}
 
 	.orange{
