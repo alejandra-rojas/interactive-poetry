@@ -1,4 +1,4 @@
-# Creative Writing Project. Choice & Regret.
+# Creative writing project. Choice & Regret.
 
 This project was conceptualised by students at the creative writing program at Biskops Arnö Folkhögskola. "The project aims to work with interactive text and explore elements of choice and regret."
 
