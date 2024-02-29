@@ -4,5 +4,5 @@ This is a project conceptualised by students at the creative writing program at 
 
 
 
-## Use t
-> You can take part in the experience here [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Take part in the experience
+You can try it [here]([https://kit.svelte.dev/docs/adapters](https://det-gar-inte-att-angra-en-dikt.vercel.app/)https://det-gar-inte-att-angra-en-dikt.vercel.app/).
