@@ -5,4 +5,4 @@ This is a project conceptualised by students at the creative writing program at 
 
 
 ## Take part in the experience
-You can try it [here]([https://kit.svelte.dev/docs/adapters](https://det-gar-inte-att-angra-en-dikt.vercel.app/)https://det-gar-inte-att-angra-en-dikt.vercel.app/).
+Visit the deployed project: [https://det-gar-inte-att-angra-en-dikt.vercel.app/]([https://kit.svelte.dev/docs/adapters](https://det-gar-inte-att-angra-en-dikt.vercel.app/)https://det-gar-inte-att-angra-en-dikt.vercel.app/).
