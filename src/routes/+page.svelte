@@ -182,9 +182,9 @@ function restore(index: number) {
 			</div>
 			<div><span class='orange'>Steg 2</span> är att du skriver ord i rutan med rubriken Jag ångrar / jeg fortryder:. Dina ord läggs då till i den befintliga samlingen.
 			</div>
-			<div><span class='orange'>Steg 3</span> är att du väljer ord som i slutet bildar en ordföljd. Orden genereras slumpmässigt från samlingen ord, som du har varit med och skapat. Du börjar med att välja 1 av de 7 ord du får upp som första val. Varje valt ord generar i sin tur slumpmässigt 7 nya ord, unika till det ord du valt, som du sedan ska välja 1 av och fortsätter sedan på samma sätt. Du ställs totalt inför 13 val av ord att plocka, som i slutändan bildar en ordföljd på 13 ord. Under skapandets gång har du rätt att ångra dig max 3 gånger, och då gå tillbaka till tidigare steg för chansen att välja mellan andra ord som då genereras. 
+			<div><span class='orange'>Steg 3</span> är att du väljer ord som i slutet bildar en ordföljd. Orden genereras slumpmässigt från samlingen ord, som du har varit med och skapat. Du börjar med att välja 1 av de 7 ord som visas på skärmen. Varje valt ord genererar i sin tur slumpmässigt 7 nya ord. Du fortsätter på samma sätt tills du i slutändan har en ordföljd på 13 ord. Under skapandets gång kan du ångra dig max 3 gånger, och då gå tillbaka ett steg för chansen att välja ett annat ord.
 			</div>
-			<div><span class='orange'>Steg 4</span> är att du skapar en text utifrån den ordföljd du hamnat med. Det enda du kan ändra i ordföljden är att (1) lägga till versaler, (2) lägga till skiljetecken, (3) lägga till radbrytning.
+			<div><span class='orange'>Steg 4</span> är att du redigerar ordföljden. Det du kan ändra i ordföljden är att (1) lägga till versaler, (2) lägga till skiljetecken, (3) kursivera, (4) lägga till radbrytning.
 			</div>
 			<div><span class='orange'>Steg 5</span> är att du kan välja att kopiera den skapade texten och spara den hos dig, eller lämna sidan och låta den försvinna. När du lämnar sidan försvinner även de eventuella ord du la till i samlingen.
 			</div>
