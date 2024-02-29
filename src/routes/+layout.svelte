@@ -11,7 +11,6 @@
 	</main>
 
 	<!-- <footer>
-		<p>blah blah</p>
 	</footer> -->
 </div>
 

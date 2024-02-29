@@ -64,8 +64,10 @@
   "hvorhenne", "say", "yes", "to", "the", "dress", "min", "mormor", "sagde", "I", "sommers", "I", "knew", "three", "days", "after", "I", "married", "him",
   "I", "had", "made", "the", "biggest", "mistake", "of", "my", "life", "nervous", "laugh"
 ];
+	console.log('Initial set of words:', wordList.length)
 
 	let randomWords: string[] = [];
+
 	let sessionWordSet: string[][] = [];
 
 	let poemWords: string[] = [];
@@ -81,9 +83,10 @@
     isOpen = false;
   }
 
-	function handleSubmit(){
+	function addNewWords(){
 		const newWords = userInput.split(/\s+/).filter(word => word.trim() !== "");
 		wordList = [...wordList, ...newWords];
+		console.log('Number of words after clicking start:', wordList.length)
 		userInput = "";
 		selectRandomWords();
 		showAppContainer = true; 
@@ -99,12 +102,15 @@
 	  }
 	  randomWords = randomIndexes.map((index) => wordList[index]);
 	  sessionWordSet.push([...randomWords]);
+	  console.log('Session word set:', sessionWordSet)
+
 	}
   
 	function addToPoem(word: any) {
 	  poemWords = [...poemWords, word];
 	  selectRandomWords();
-	  //console.log(sessionWordSet)
+	  console.log('Selected words:', poemWords)
+
 	}
   
 	function regret() {
@@ -171,8 +177,6 @@ function addPoint(index: number) {
   }
   poemWords[index] += ".";
 }
-
-
 function addParentheses(index: number) {
   if (!modifiedWords[index]) {
     modifiedWords[index] = poemWords[index];
@@ -256,7 +260,7 @@ function restore(index: number) {
 			<label for="inputField">Jag ångrar/ jeg fortryder:</label>
   			<textarea on:click={closeAccordion}  class="text-area" rows="6" id="inputField" bind:value={userInput} />
 			
- 			<button on:click={handleSubmit}>start</button>
+ 			<button on:click={addNewWords}>start</button>
 		</div>
 	{/if}
  
